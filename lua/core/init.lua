@@ -94,8 +94,8 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
     config = require("core.utils").load_config()
 
-    vim.g.nvchad_theme = config.ui.theme
-    vim.g.transparency = config.ui.transparency
+    vim.g.nvchad_theme = config.ui.theme and config.ui.theme or vim.g.nvchad_theme
+    vim.g.transparency = config.ui.transparency and config.ui.transparency or vim.g.transparency
 
     -- statusline
     require("plenary.reload").reload_module("nvchad_ui.statusline." .. config.ui.statusline.theme)
